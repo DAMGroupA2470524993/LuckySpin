@@ -5,8 +5,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import pt.ipt.dam.luckyspin.fragmentos.tituloApp
 
 class RegisterActivity : AppCompatActivity() {
+
+    lateinit var f1: tituloApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +20,11 @@ class RegisterActivity : AppCompatActivity() {
         val passwordInput: EditText = findViewById(R.id.passwordInput)
         val signUpButton: Button = findViewById(R.id.signUpButton)
 
+        f1 = tituloApp.newInstance("", "");
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentAppTitle, f1)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
         // Set the click listener for the Sign Up button
         signUpButton.setOnClickListener {
             // Get the text values from email and password inputs

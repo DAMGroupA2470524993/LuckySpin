@@ -3,7 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- APP Title -->
+    <FrameLayout
+        android:id="@+id/fragmentAppTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <!-- APP Title
     <TextView
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
@@ -12,7 +18,7 @@
         android:layout_marginTop="20dp"
         android:text="LuckySpin"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" /> -->
 
     <!-- Welcome Encouragemenet Text-->
     <TextView

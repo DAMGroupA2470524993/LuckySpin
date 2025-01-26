@@ -10,9 +10,12 @@ import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import pt.ipt.dam.luckyspin.fragmentos.tituloApp
 import kotlin.random.Random
 
 class RoletaActivity : AppCompatActivity(), SensorEventListener {
+
+    lateinit var f1: tituloApp
 
     private lateinit var sensorManager: SensorManager
     private var accelerometer: Sensor? = null
@@ -22,10 +25,16 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var rouletteWheel: ImageView
     private lateinit var resultText: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.roleta) // Make sure roleta.xml exists for the layout
-
+        
+        f1 = tituloApp.newInstance("", "");
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentAppTitle, f1)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
         // Initialize UI components
         rouletteWheel = findViewById(R.id.rouletteWheel)
         resultText = findViewById(R.id.resultText)

@@ -3,9 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <FrameLayout
+        android:id="@+id/fragmentAppTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
     <!-- Welcome Text -->
-    <TextView
+   <!--><TextView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,13 +18,14 @@
         android:text="@string/appName"
         android:textSize="32sp"
         android:textStyle="bold" />
+    !-->
     <TextView
         android:id="@+id/casinoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:layout_below="@id/welcomeText"
+        android:layout_below="@id/fragmentAppTitle"
         android:text="@string/appDescription"
         android:textSize="12sp"
         android:textStyle="bold" />
@@ -31,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:layour_marginBottom="0"
         android:layout_below="@id/casinoText"
         android:text="@string/casinoWelcomeText"
         android:textSize="32sp"
