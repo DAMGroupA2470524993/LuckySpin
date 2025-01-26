@@ -2,8 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E0F7FA">
+    android:layout_height="match_parent">
     <!-- APP Title -->
     <TextView
         android:id="@+id/appTitle"
@@ -11,8 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="LuckySpin"
-        android:textColor="#000"
+        android:text="@string/appTitle"
         android:textSize="16sp"
         android:textStyle="bold" />
     <!-- Welcome Back Title -->
@@ -24,8 +22,7 @@
         android:layout_below="@id/appTitle"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="60dp"
-        android:text="Welcome Back."
-        android:textColor="#000"
+        android:text="@string/loginWelcome"
         android:textSize="26sp"
         android:textStyle="bold" />
 
@@ -36,21 +33,19 @@
         android:layout_above="@id/usernameInput"
         android:layout_alignStart="@id/usernameInput"
         android:layout_marginBottom="0dp"
-        android:text="Enter your username"
-        android:textColor="#000"
+        android:text="@string/textTitleInputUsername"
         android:textSize="16sp" />
 
     <!-- Username Input -->
     <EditText
         android:id="@+id/usernameInput"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginBottom="40dp"
         android:layout_below="@id/welcomeBackTitle"
         android:layout_centerHorizontal="true"
-        android:hint="Username"
-        android:padding="10dp"
-        android:backgroundTint="#FF5722" />
+        android:hint="@string/textInputUsername"
+        android:padding="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,20 +53,18 @@
         android:layout_above="@id/passwordInput"
         android:layout_alignStart="@id/passwordInput"
         android:layout_marginBottom="0dp"
-        android:text="Enter your password"
-        android:textColor="#000"
+        android:text="@string/textTitleInputPassword"
         android:textSize="16sp" />
 
     <!-- Password Input -->
     <EditText
         android:id="@+id/passwordInput"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/usernameInput"
         android:layout_centerHorizontal="true"
-        android:hint="Password"
-        android:padding="10dp"
-        android:backgroundTint="#FF5722" />
+        android:hint="@string/textInputPassword"
+        android:padding="10dp" />
 
     <!-- Forgot Password Text -->
     <TextView
@@ -81,8 +74,7 @@
         android:layout_below="@id/passwordInput"
         android:layout_alignStart="@id/passwordInput"
         android:layout_marginTop="10dp"
-        android:text="Forgot password?"
-        android:textColor="#FF5722"
+        android:text="@string/loginForgotPassword"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -94,23 +86,21 @@
         android:layout_below="@id/forgotPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Login"
-        android:textColor="#FFF"
-        android:backgroundTint="#FF5722" />
+        android:text="@string/btnLogin" />
 
     <!-- New User Text -->
     <TextView
         android:id="@+id/newUserSignUp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/loginButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="New user? Sign up"
-        android:textColor="#FF5722"
+        android:text="@string/loginRegisterText"
         android:textSize="14sp"
         android:textStyle="bold"
         android:clickable="true"
         android:focusable="true"
         />
+
 </RelativeLayout>
