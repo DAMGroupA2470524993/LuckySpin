@@ -36,6 +36,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        //noinspection DataBindingWithoutKapt
+        dataBinding = true
+    }
+
+
 }
 dependencies {
     implementation(libs.androidx.core.ktx)

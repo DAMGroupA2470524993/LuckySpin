@@ -16,4 +16,6 @@
     <string name="txtWelcomeFree">JOGADAS \nGRÁTIS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="roulette">Roulette</string>
+    <string name="result">Result</string>
 </resources>

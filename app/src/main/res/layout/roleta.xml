@@ -1,5 +1,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,24 +9,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
-    <!-- Roulette Wheel -->
-    <ImageView
-        android:id="@+id/rouletteWheel"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/roulette_wheel"
-        android:contentDescription="Roulette Wheel" />
 
-    <!-- Display Result -->
-    <TextView
-        android:id="@+id/resultText"
+    <View
+        android:layout_width="match_parent"
+        android:layout_below="@id/fragmentAppTitle"
+        android:paddingTop="30sp"
+        android:layout_height="10sp"
+        android:background="@android:color/darker_gray"/>
+
+    <!-- Roulette Wheel -->
+
+    <ImageButton
+        android:id="@+id/rouletteWheel"
+        android:layout_width="400sp"
+        android:layout_height="395sp"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/roulette"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/roulette_wheel" />
+
+    <!-- Roulette Result -->
+    <ImageView
+        android:id="@+id/imageViewResult"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rouletteWheel"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Result: ?"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_height="150sp"
+        android:paddingTop="50sp"
+        android:contentDescription="@string/result"
+        android:scaleType="fitCenter"
+         />
+
+
 </RelativeLayout>
