@@ -18,4 +18,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="roulette">Roulette</string>
     <string name="result">Result</string>
+    <string name="black">Black</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="amount">$Bet</string>
+    <string name="spin">SPIN</string>
+    <string name="betValueDefault">100</string>
 </resources>
