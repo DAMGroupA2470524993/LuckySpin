@@ -6,6 +6,7 @@
     <color name="cor_realce_azul">#00d1b2</color>
     <color name="cor_clara">#ffffff</color>
     <color name="cor_escura">#000000</color>
+    <color name="verde">#20A401</color>
 
     <!-- Cores de texto -->
     <color name="cor_texto_claro">#ffffff</color>
