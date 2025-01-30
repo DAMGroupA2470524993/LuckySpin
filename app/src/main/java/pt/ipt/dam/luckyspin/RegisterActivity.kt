@@ -1,25 +1,29 @@
 package pt.ipt.dam.luckyspin
 
+import android.annotation.SuppressLint
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Base64
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import pt.ipt.dam.luckyspin.data.Api
+import pt.ipt.dam.luckyspin.data.ApiSheety
+import pt.ipt.dam.luckyspin.data.Repository
+import pt.ipt.dam.luckyspin.data.User
 import pt.ipt.dam.luckyspin.fragmentos.tituloApp
+import java.security.MessageDigest
 
 class RegisterActivity : AppCompatActivity() {
 
     lateinit var f1: tituloApp
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
-
-        // Find the UI elements by ID
-        val emailInput: EditText = findViewById(R.id.emailInput)
-        val passwordInput: EditText = findViewById(R.id.passwordInput)
-        val signUpButton: Button = findViewById(R.id.signUpButton)
 
         f1 = tituloApp.newInstance("", "");
         val fragmentTransaction = supportFragmentManager.beginTransaction()
@@ -28,31 +32,42 @@ class RegisterActivity : AppCompatActivity() {
         fragmentTransaction.commit()
         // Set the click listener for the Sign Up button
 
+        // Find the UI elements by ID
+        val emailInput: EditText = findViewById(R.id.emailInput)
+        val usernameInput : EditText = findViewById(R.id.usernameInput)
+        val passwordInput: EditText = findViewById(R.id.passwordInput)
+        val signUpButton: Button = findViewById(R.id.signUpButton)
 
+        val rep = Repository()
 
         signUpButton.setOnClickListener {
-            // Get the text values from email and password inputs
-            val email = emailInput.text.toString().trim()
+            val email = emailInput.text.toString().trim().lowercase()
+            val username = usernameInput.text.toString().trim().lowercase()
             val password = passwordInput.text.toString().trim()
+            val passhash = hashPass(password)
 
-            // Validate inputs
-            if (email.isEmpty() || password.isEmpty()) {
-                // If email or password is empty, show a Toast message
-                Toast.makeText(this, "Please enter both email and password", Toast.LENGTH_SHORT).show()
-            } else {
-                // Logic to handle sign-up, for now, just show a Toast
-                // You can replace this with actual sign-up logic (e.g., storing user details, verifying email)
-                Toast.makeText(this, "Sign up successful!", Toast.LENGTH_SHORT).show()
+            if (email.isEmpty() || username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-
-
-
-
-
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+            rep.createUser(User(email = email, username = username, hashPass = passhash, creditos = 500)) { user ->
+                if (user != null) {
+                    Toast.makeText(this, "Registro bem-sucedido!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "Erro no registro!", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
+
+    fun hashPass(input: String, algorithm: String = "SHA-256"): String {
+        val bytes = MessageDigest.getInstance(algorithm).digest(input.toByteArray())
+        return Base64.encodeToString(bytes, Base64.NO_WRAP)
+    }
+
+
 }
