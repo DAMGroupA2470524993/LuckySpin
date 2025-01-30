@@ -101,6 +101,17 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
             }
         }
 
+        //função que dá reset a todas as variáveis que sejam botões
+         fun resetBt() {
+            betButtons.forEach { it.isEnabled = true }
+            selectBt = null
+            betBlack = false
+            betRed = false
+            betGreen = false
+            btBlack.setBackgroundColor(Color.BLACK)
+            btRed.setBackgroundColor(Color.RED)
+            btGreen.setBackgroundColor(Color.GREEN)
+        }
 
         //Quando carregado no botão, implementa a função betButtonSelected(bt: Button) e muda a cor
         btBlack.setOnClickListener{
@@ -162,21 +173,11 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
                 }
 
             }
-
+            resetBt()
         }
     }
 
-    //função que dá reset a todas as variáveis que sejam botões
-    private fun resetBt() {
-        betButtons.forEach { it.isEnabled = true }
-        selectBt = null
-        betBlack = false
-        betRed = false
-        betGreen = false
-        btBlack.setBackgroundColor(Color.BLACK)
-        btRed.setBackgroundColor(Color.RED)
-        btGreen.setBackgroundColor(Color.GREEN)
-    }
+
 
     /*                ROLETA                               */
 
