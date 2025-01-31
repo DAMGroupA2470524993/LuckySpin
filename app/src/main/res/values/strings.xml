@@ -24,4 +24,5 @@
     <string name="amount">$Bet</string>
     <string name="spin">SPIN</string>
     <string name="betValueDefault">100</string>
+    <string name="sensor_on">Sensor On</string>
 </resources>
