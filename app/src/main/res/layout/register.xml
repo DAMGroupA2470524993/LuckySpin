@@ -25,7 +25,7 @@
         android:id="@+id/signupTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/appTitle"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="60dp"
@@ -53,6 +53,26 @@
         android:hint="Email"
         android:padding="10dp" />
 
+    <!-- Username Input Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/usernameInput"
+        android:layout_alignStart="@id/emailInput"
+        android:text="Enter your Username"
+        android:textSize="16sp" />
+
+    <!-- Username Input Field -->
+    <EditText
+        android:id="@+id/usernameInput"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/emailInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:hint="Username"
+        android:padding="10dp" />
+
     <!-- Create Password Text -->
     <TextView
         android:layout_width="wrap_content"
@@ -68,7 +88,7 @@
         android:id="@+id/passwordInput"
         android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_below="@id/emailInput"
+        android:layout_below="@id/usernameInput"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
         android:hint="Password"
@@ -78,8 +98,8 @@
     <!-- Sign Up Button -->
     <Button
         android:id="@+id/signUpButton"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_width="260sp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/passwordInput"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
