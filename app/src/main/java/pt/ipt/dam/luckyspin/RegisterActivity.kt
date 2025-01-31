@@ -1,5 +1,6 @@
 package pt.ipt.dam.luckyspin
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -26,6 +27,9 @@ class RegisterActivity : AppCompatActivity() {
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
         // Set the click listener for the Sign Up button
+
+
+
         signUpButton.setOnClickListener {
             // Get the text values from email and password inputs
             val email = emailInput.text.toString().trim()
@@ -40,10 +44,14 @@ class RegisterActivity : AppCompatActivity() {
                 // You can replace this with actual sign-up logic (e.g., storing user details, verifying email)
                 Toast.makeText(this, "Sign up successful!", Toast.LENGTH_SHORT).show()
 
-                // Optionally, navigate to another activity after successful sign up (e.g., login page or home page)
-                // val intent = Intent(this, LoginActivity::class.java)
-                // startActivity(intent)
-                // finish()
+
+
+
+
+
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
     }

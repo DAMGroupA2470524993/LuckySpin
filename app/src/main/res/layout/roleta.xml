@@ -1,5 +1,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,25 +8,116 @@
         android:id="@+id/fragmentAppTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_below="@id/fragmentAppTitle"
+        android:paddingTop="30sp"
+        android:layout_height="11sp"
+        android:background="@android:color/darker_gray"/>
+
     <!-- Roulette Wheel -->
+
     <ImageView
         android:id="@+id/rouletteWheel"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="405dp"
+        android:layout_height="276dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/roulette_wheel"
-        android:contentDescription="Roulette Wheel" />
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/roulette"
+        android:scaleType="fitCenter"
+        />
 
-    <!-- Display Result -->
+    <!-- Roulette Result -->
+    <ImageView
+        android:id="@+id/imageViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="200sp"
+        android:paddingTop="100sp"
+        android:contentDescription="@string/result"
+        android:scaleType="fitCenter"
+        />
+
+    <Button
+        android:id="@+id/btBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_dark"
+        android:layout_below="@id/rouletteWheel"
+        android:layout_marginTop="40sp"
+        android:layout_marginStart="10sp"
+        android:text="@string/black"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@null"/>
+
+    <Button
+        android:id="@+id/btRed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:background="@android:color/holo_red_light"
+        android:layout_below="@id/rouletteWheel"
+        android:layout_toEndOf="@id/btBlack"
+        android:text="@string/red"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@null"/>
+
+    <Button
+        android:id="@+id/btGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:background="@android:color/holo_green_dark"
+        android:layout_below="@id/rouletteWheel"
+        android:layout_toEndOf="@id/btRed"
+        android:text="@string/green"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        app:backgroundTint="@null"/>
+
     <TextView
-        android:id="@+id/resultText"
+        android:id="@+id/textAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rouletteWheel"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Result: ?"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="48dp"
+        android:layout_toEndOf="@id/btGreen"
+        android:hint="@string/amount"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textAmount"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="-38dp"
+        android:layout_toEndOf="@id/btGreen"
+        android:text="@string/betValueDefault"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:inputType="number"
+        android:maxLines="1"/>
+
+    <Button
+        android:id="@+id/btSpin"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btGreen"
+        android:layout_marginStart="-65dp"
+        android:layout_marginTop="29dp"
+        android:layout_toEndOf="@id/btRed"
+        android:background="@android:color/holo_orange_dark"
+        android:text="@string/spin"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
+        app:backgroundTint="@null" />
+
 </RelativeLayout>
