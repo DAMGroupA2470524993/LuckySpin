@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.LuckySpin" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Dark Theme Overrides -->
+    <style name="Tema.RodaSortuda.Escuro" parent="Base.Tema.RodaSortuda">
+        <item name="android:colorBackground">@color/cor_escura</item>
     </style>
 </resources>
