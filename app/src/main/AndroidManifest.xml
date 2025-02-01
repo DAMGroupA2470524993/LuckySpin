@@ -64,6 +64,13 @@
             android:screenOrientation="portrait"
         </activity>
 
+        <activity
+            android:name=".AboutActivity"
+            android:exported="true"
+            tools:ignore="ExtraText">
+            android:screenOrientation="portrait"
+        </activity>
+
     </application>
 
 </manifest>

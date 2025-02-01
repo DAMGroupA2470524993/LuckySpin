@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Nome do aluno -->
+    <TextView
+        android:id="@+id/nomeAluno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diogo Filipe Videira dos Santos Larangeira"
+        android:textSize="18sp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- Nome do segundo aluno -->
+    <TextView
+        android:id="@+id/nomeAluno2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rúben Filipe Alcobia Dias"
+        android:textSize="18sp"
+        android:layout_below="@id/numeroAluno"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- Número do aluno -->
+    <TextView
+        android:id="@+id/numeroAluno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nº 24993"
+        android:textSize="16sp"
+        android:layout_below="@id/nomeAluno"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <!-- Número do segundo aluno -->
+    <TextView
+        android:id="@+id/numeroAluno2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nº 24705"
+        android:textSize="16sp"
+        android:layout_below="@id/nomeAluno2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <!-- Nome do curso -->
+    <TextView
+        android:id="@+id/aboutCurso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aboutCurso"
+        android:textSize="36sp"
+        android:layout_below="@id/numeroAluno2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <!-- Nome da unidade curricular -->
+    <TextView
+        android:id="@+id/unidadeCurricular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aboutUC"
+        android:textSize="16sp"
+        android:layout_below="@id/aboutCurso"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <!-- Ano letivo -->
+    <TextView
+        android:id="@+id/anoTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2024/2025"
+        android:textSize="16sp"
+        android:layout_below="@id/unidadeCurricular"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+</android.widget.RelativeLayout>
