@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 import pt.ipt.dam.luckyspin.data.Repository
 import pt.ipt.dam.luckyspin.data.User
+import pt.ipt.dam.luckyspin.fragmentos.tituloApp
 import java.security.MessageDigest
 
 class RegisterActivity : AppCompatActivity() {

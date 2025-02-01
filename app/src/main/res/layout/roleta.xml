@@ -127,8 +127,8 @@
     <ImageView
         android:id="@+id/rouletteWheel"
         android:layout_width="405dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="115dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="75dp"
         android:layout_below="@id/userCredits"
         android:background="@android:color/transparent"
         android:contentDescription="@string/roulette"
@@ -139,10 +139,10 @@
     <ImageView
         android:id="@+id/imageViewResult"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_below="@id/userCredits"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
+        android:layout_height="200dp"
+        android:paddingTop="100dp"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/rouletteWheel"
         android:contentDescription="@string/result"
         android:scaleType="fitCenter"
         />

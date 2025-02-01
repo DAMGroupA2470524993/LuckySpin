@@ -24,6 +24,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import pt.ipt.dam.luckyspin.fragmentos.tituloApp
 import kotlin.random.Random
 import android.widget.Toast
 import androidx.annotation.RequiresApi
