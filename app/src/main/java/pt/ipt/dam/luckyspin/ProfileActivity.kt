@@ -27,6 +27,8 @@ class ProfileActivity: AppCompatActivity() {
     private lateinit var passInput : EditText
     //campo de texto para inserir a password
     private lateinit var passConfirm : EditText
+    //imageVie para voltar à roleta
+    private lateinit var btVoltar : Button
     //botão para alterar os dados
     private lateinit var alterarDadosButton: Button
     //botão para fazer logout
@@ -53,6 +55,7 @@ class ProfileActivity: AppCompatActivity() {
         alterarDadosButton = findViewById(R.id.alterarDadosButton)
         btLogout           = findViewById(R.id.btLogout)
         btEliminar         = findViewById(R.id.eliminarUser)
+        btVoltar           = findViewById(R.id.btVoltar)
 
         //instância da classe Repository
         val rep = Repository()
@@ -188,6 +191,14 @@ class ProfileActivity: AppCompatActivity() {
             }
         }
 
+        //ação do botão de voltar
+        //o utilizador é redirecionado para a página de roleta
+        btVoltar.setOnClickListener {
+            //redirecionamento para a página de roleta
+            val intent = Intent(this, RoletaActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     /**

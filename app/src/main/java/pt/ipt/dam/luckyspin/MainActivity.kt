@@ -39,12 +39,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         //aboutBt abre a página que explica a aplicação e os criadores quando pressionado
-        /*aboutBt.setOnClickListener {
+        aboutBt.setOnClickListener {
             //criação do intent para a página de sobre a aplicação e os criadores
             val intent = Intent(this, AboutActivity::class.java)
             //início da página de sobre a aplicação e os criadores
             startActivity(intent)
-        }*/
+        }
 
     }
 }
