@@ -4,16 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/fragmentAppTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/appTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
         />
 
     <View
         android:layout_width="match_parent"
-        android:layout_below="@id/fragmentAppTitle"
+        android:layout_below="@id/titulo"
         android:paddingTop="30dp"
         android:layout_height="11dp"
         android:background="@android:color/darker_gray"/>
@@ -121,8 +127,9 @@
     <ImageView
         android:id="@+id/rouletteWheel"
         android:layout_width="405dp"
-        android:layout_height="276dp"
-        android:layout_centerInParent="true"
+        android:layout_height="350dp"
+        android:layout_marginTop="115dp"
+        android:layout_below="@id/userCredits"
         android:background="@android:color/transparent"
         android:contentDescription="@string/roulette"
         android:scaleType="fitCenter"
@@ -132,10 +139,10 @@
     <ImageView
         android:id="@+id/imageViewResult"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:paddingTop="100dp"
-        android:layout_centerInParent="true"
-        android:layout_above="@id/rouletteWheel"
+        android:layout_height="100dp"
+        android:layout_below="@id/userCredits"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
         android:contentDescription="@string/result"
         android:scaleType="fitCenter"
         />
@@ -146,7 +153,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rouletteWheel"
         android:layout_marginStart="17dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
         android:text="@string/amount"
         android:layout_toStartOf="@id/betValue"
         android:textColor="@android:color/white"
@@ -159,7 +166,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rouletteWheel"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:layout_centerHorizontal="true"
         android:inputType="number"
@@ -174,7 +181,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textAmount"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="25sp"
         android:layout_toStartOf="@id/btRed"
         android:background="@android:color/background_dark"
         android:text="@string/black"
@@ -186,7 +193,7 @@
         android:id="@+id/btRed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:background="@android:color/holo_red_dark"
         android:layout_below="@id/textAmount"
         android:layout_centerHorizontal="true"
@@ -199,7 +206,7 @@
         android:id="@+id/btGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:background="@color/verde"
         android:layout_below="@id/textAmount"
         android:layout_toEndOf="@id/btRed"

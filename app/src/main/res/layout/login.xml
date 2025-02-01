@@ -5,29 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/fragmentAppTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    <!-- APP Title
     <TextView
-        android:id="@+id/appTitle"
+        android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:text="@string/appTitle"
-        android:textSize="16sp"
-        android:textStyle="bold" /> -->
-    <!-- Welcome Back Title -->
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        />
+
     <TextView
         android:id="@+id/welcomeBackTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/appTitle"
-        android:layout_marginTop="100dp"
+        android:layout_below="@id/titulo"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="60dp"
         android:text="@string/loginWelcome"
         android:textSize="26sp"
@@ -79,18 +75,20 @@
         />
 
 
-
-    <!-- Login Button -->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="260sp"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordInput"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@null"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:text="@string/btnLogin" />
 
-    <!-- New User Text -->
     <TextView
         android:id="@+id/newUserSignUp"
         android:layout_width="wrap_content"

@@ -3,93 +3,54 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <FrameLayout
-        android:id="@+id/fragmentAppTitle"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/appTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
         />
-    <!-- Welcome Text -->
-   <!--><TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <ImageView
+        android:id="@+id/imagemIcon"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="@string/appName"
-        android:textSize="32sp"
-        android:textStyle="bold" />
-    !-->
-    <TextView
-        android:id="@+id/casinoText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:layout_below="@id/fragmentAppTitle"
-        android:text="@string/appDescription"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+        android:src="@mipmap/roleta"/>
 
-    <TextView
-        android:id="@+id/welcomeAdvertText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/casinoText"
-        android:text="@string/casinoWelcomeText"
-        android:textSize="32sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:id="@+id/welcomeFreeSpinsText"
-        android:layout_width="match_parent"
-        android:layout_below="@id/welcomeAdvertText"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
-        android:gravity="top|center"
-        android:padding="0dp">
-
-
-
-        <!-- "Free Spins" Text -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="100"
-            android:textAlignment="gravity"
-            android:textSize="100sp"
-            android:textStyle="bold" />
-        <!-- Free Spins Count -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/txtWelcomeFree"
-            android:gravity="center_vertical"
-            android:paddingLeft="12dp"
-            android:textSize="32sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txtWelcomeOferta"
-        android:layout_below="@id/welcomeFreeSpinsText"
-        android:layout_centerHorizontal="true"
-        android:textSize="32sp"
-        android:textStyle="bold" />
-
-
-    <!-- SPIN Button -->
     <Button
         android:id="@+id/startButton"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/welcomeFreeSpinsText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:text="@string/btnJoin" />
+        android:layout_below="@id/imagemIcon"
+        android:backgroundTint="@null"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/btnLogin" />
+
+    <Button
+        android:id="@+id/about"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/startButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@null"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/sobre_nos" />
 
 
 
