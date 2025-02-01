@@ -11,24 +11,16 @@ import androidx.appcompat.app.AppCompatActivity
 
 import pt.ipt.dam.luckyspin.data.Repository
 import pt.ipt.dam.luckyspin.data.User
-import pt.ipt.dam.luckyspin.fragmentos.tituloApp
 import java.security.MessageDigest
 
 class RegisterActivity : AppCompatActivity() {
 
-    lateinit var f1: tituloApp
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register)
 
-        f1 = tituloApp.newInstance("", "");
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentAppTitle, f1)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
-        // Set the click listener for the Sign Up button
 
         // Find the UI elements by ID
         val emailInput: EditText = findViewById(R.id.emailInput)

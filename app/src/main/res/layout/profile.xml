@@ -5,15 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/fragmentAppTitle"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/appTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
         />
 
     <View
         android:layout_width="match_parent"
-        android:layout_below="@id/fragmentAppTitle"
+        android:layout_below="@id/titulo"
         android:paddingTop="30dp"
         android:layout_height="11dp"
         android:background="@android:color/darker_gray"/>
@@ -39,7 +45,7 @@
         android:layout_below="@id/profilePicture"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:hint="@string/username"
+        android:hint="Nome \nUtilizador"
         android:textColorHint="@android:color/white"
         />
 
@@ -61,7 +67,7 @@
         android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="0dp"
         android:layout_marginStart="10dp"
         android:layout_below="@id/usernameTextView"
@@ -78,7 +84,7 @@
         android:layout_below="@id/usernameTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="15dp"
         android:layout_toEndOf="@id/usernameTextView"
         android:inputType="textEmailAddress"
         android:maxLines="1"
@@ -89,7 +95,7 @@
         android:id="@+id/passwordNewTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="0dp"
         android:layout_marginStart="10dp"
         android:layout_below="@id/emailTextView"
@@ -107,7 +113,7 @@
         android:layout_below="@id/emailEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_toEndOf="@id/usernameTextView"
         android:inputType="textPassword"
         android:hint="@string/nova_palavra_passe"

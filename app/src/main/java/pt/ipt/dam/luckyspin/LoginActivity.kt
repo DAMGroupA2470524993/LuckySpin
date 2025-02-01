@@ -12,8 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import pt.ipt.dam.luckyspin.data.Api
 import pt.ipt.dam.luckyspin.data.ApiSheety
 import pt.ipt.dam.luckyspin.data.Repository
-import pt.ipt.dam.luckyspin.fragmentos.tituloApp
-import pt.ipt.dam.luckyspin.fragmentos.tituloAppWelcome
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,18 +21,10 @@ import java.security.MessageDigest
 
 class LoginActivity : AppCompatActivity() {
 
-    lateinit var f1: tituloApp
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
-        f1 = tituloApp.newInstance("", "");
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentAppTitle, f1)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+
 
         val usernameInput : EditText = findViewById(R.id.usernameInput)
         val passwordInput: EditText = findViewById(R.id.passwordInput)
