@@ -1,11 +1,13 @@
 package pt.ipt.dam.luckyspin
 
 import android.annotation.SuppressLint
-import android.content.Context
+import android.app.AlertDialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.ImageDecoder
 import android.graphics.drawable.AnimatedImageDrawable
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -14,9 +16,10 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.view.animation.Animation
-import android.view.animation.RotateAnimation
+import android.util.Log
+import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -26,6 +29,11 @@ import kotlin.random.Random
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
+import pt.ipt.dam.luckyspin.data.Repository
+import pt.ipt.dam.luckyspin.fragmentos.ProfileActivity
+import java.io.BufferedReader
+import java.io.FileOutputStream
+import java.io.InputStreamReader
 
 class RoletaActivity : AppCompatActivity(), SensorEventListener  {
     private lateinit var f1: tituloApp
@@ -33,11 +41,19 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
     private lateinit var image: ImageView
     private lateinit var roulette: ImageView
 
+    private lateinit var userPlace: TextView
+    private lateinit var cPlace: TextView
+    private lateinit var profPic: ImageButton
+    private lateinit var betValue: EditText
+
     private lateinit var btBlack : Button
     private lateinit var btRed : Button
     private lateinit var btGreen : Button
     private lateinit var btSpin : Button
-    private lateinit var btChangeSensor : Button
+    private lateinit var btHelp : ImageButton
+    private lateinit var btSettings : ImageButton
+    private lateinit var btChangeSensor : ImageButton
+    private lateinit var btChangeVib : ImageButton
     private lateinit var betButtons : List<Button>
 
     private var betBlack: Boolean = false
@@ -45,7 +61,9 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
     private var betGreen: Boolean = false
     private var selectBt: Button? = null
 
+    private var defOn: Boolean = false
     private var acOn: Boolean = true
+    private var vibOn: Boolean = true
 
     private lateinit var sensorManager: SensorManager
     private var vibrator: Vibrator? = null
@@ -82,14 +100,29 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
         (drawableR as? AnimatedImageDrawable)?.start()
 
         //identificação dos botões
-         btBlack       = findViewById(R.id.btBlack)
-         btRed         = findViewById(R.id.btRed)
-         btGreen       = findViewById(R.id.btGreen)
+         btBlack        = findViewById(R.id.btBlack)
+         btRed          = findViewById(R.id.btRed)
+         btGreen        = findViewById(R.id.btGreen)
          btSpin         = findViewById(R.id.btSpin)
+         btHelp         = findViewById(R.id.btHelp)
+         btSettings     = findViewById(R.id.btDef)
          btChangeSensor = findViewById(R.id.btAc)
+         btChangeVib    = findViewById(R.id.btVib)
+         userPlace      = findViewById(R.id.usernamePlace)
+         cPlace         = findViewById(R.id.userCredits)
+         betValue       = findViewById(R.id.betValue)
+         profPic        = findViewById(R.id.profilePicture)
+
+        val bordaBl = GradientDrawable()
+        val bordaRd = GradientDrawable()
+        val bordaGn = GradientDrawable()
+
+
+        userPlace.setText(readFromFile("user.txt"))
+        cPlace.setText(readFromFile("creditos.txt"))
 
         //lista dos botões de apostas
-        val betButtons = listOf(btBlack, btRed, btGreen)
+        betButtons = listOf(btBlack, btRed, btGreen)
         //função que permite bloquear os restantes botões quando um é acionado
         fun betButtonSelected(bt: Button) {
             if (bt == selectBt) {
@@ -113,46 +146,92 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
             btGreen.setBackgroundColor(Color.GREEN)
         }
 
+        profPic.setOnClickListener{
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
         //Quando carregado no botão, implementa a função betButtonSelected(bt: Button) e muda a cor
         btBlack.setOnClickListener{
             betButtonSelected(btBlack)
             if (betBlack == false) {
                 betBlack = true
-                btBlack.setBackgroundColor(Color.BLUE)
+                bordaBl.setColor(Color.BLACK)
+                bordaBl.setStroke(10, Color.WHITE)
+                bordaBl.cornerRadius = 10f
+                btBlack.background = bordaBl
             } else {
                 betBlack = false
-                btBlack.setBackgroundColor(Color.BLACK)
+                bordaBl.setColor(Color.BLACK)
+                bordaBl.setStroke(0, Color.WHITE)
+                bordaBl.cornerRadius = 10f
+                btBlack.background = bordaBl
             }
         }
         btRed.setOnClickListener{
             betButtonSelected(btRed)
             if (betRed == false) {
                 betRed = true
-                btRed.setBackgroundColor(Color.BLUE)
+                bordaRd.setColor(Color.RED)
+                bordaRd.setStroke(10, Color.WHITE)
+                bordaRd.cornerRadius = 10f
+                btRed.background = bordaRd
             } else {
                 betRed = false
-                btRed.setBackgroundColor(Color.RED)
+                bordaRd.setColor(Color.RED)
+                bordaRd.setStroke(0, Color.WHITE)
+                bordaRd.cornerRadius = 10f
+                btRed.background = bordaRd
             }
         }
         btGreen.setOnClickListener{
             betButtonSelected(btGreen)
             if (betGreen == false) {
                 betGreen = true
-                btGreen.setBackgroundColor(Color.BLUE)
+                bordaGn.setColor(Color.GREEN)
+                bordaGn.setStroke(10, Color.WHITE)
+                bordaGn.cornerRadius = 10f
+                btGreen.background = bordaGn
             } else {
                 betGreen = false
-                btGreen.setBackgroundColor(Color.GREEN)
+                bordaGn.setColor(Color.GREEN)
+                bordaGn.setStroke(0, Color.WHITE)
+                bordaGn.cornerRadius = 10f
+                btGreen.background = bordaGn
+            }
+        }
+
+        btHelp.setOnClickListener{
+            showInstructionsDialog()
+        }
+
+        btSettings.setOnClickListener{
+            defOn = !defOn
+            if (defOn == true) {
+                btChangeSensor.visibility = View.VISIBLE
+                btChangeVib.visibility = View.VISIBLE
+            } else {
+                btChangeSensor.visibility = View.INVISIBLE
+                btChangeVib.visibility = View.INVISIBLE
             }
         }
         btChangeSensor.setOnClickListener{
             if(acOn == true){
                 acOn = false
-                btChangeSensor.setBackgroundColor(Color.RED)
-                btChangeSensor.text = "Sensor OFF"
+                Toast.makeText(this, "Acelerómetro Desligado!", Toast.LENGTH_SHORT).show()
+                btSpin.visibility = View.VISIBLE
             } else {
                 acOn = true
-                btChangeSensor.setBackgroundColor(Color.GREEN)
-                btChangeSensor.text = "Sensor ON"
+                Toast.makeText(this, "Acelerómetro Ligado!", Toast.LENGTH_SHORT).show()
+                btSpin.visibility = View.INVISIBLE
+            }
+        }
+        btChangeVib.setOnClickListener{
+            if(vibOn == true){
+                vibOn = false
+                Toast.makeText(this, "Vibração Desligada!", Toast.LENGTH_SHORT).show()
+            } else {
+                vibOn = true
+                Toast.makeText(this, "Vibração Ligada!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -164,12 +243,22 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
             //5, 10      - > verde
 
             if (acOn == false) {
-                var randNum = Random.nextInt(10) + 1 // valores entre 1 e 7
+                val bet = betValue.text.toString().toInt()
+                var credits  = readFromFile("creditos.txt").toInt()
                 if (betBlack == false && betRed == false && betGreen == false){
-                    Toast.makeText(this, "Please make a bet!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Please make a bet!", Toast.LENGTH_SHORT).show()
                 } else {
-                    spinRoulette(randNum)
-                    checkWin(checkColor(randNum))
+                    if (bet <= credits) {
+                        credits -= bet
+                        writeToFile("creditos.txt", credits.toString())
+                        cPlace.setText(readFromFile("creditos.txt"))
+                        var randNum = Random.nextInt(10) + 1
+                        spinRoulette(randNum)
+                        checkWin(checkColor(randNum), bet)
+                    }  else {
+                        Toast.makeText(this, "Não tens Creditos Suficientes", Toast.LENGTH_SHORT).show()
+                    }
+
                 }
 
             }
@@ -211,7 +300,7 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
     }
 
     @RequiresApi(Build.VERSION_CODES.P)
-    private fun checkWin(str : String) {
+    private fun checkWin(str : String, betV: Int) {
         if ((str == "preto" && betBlack == true) || (str == "vermelho" && betRed == true)) {
             val sourceRes :ImageDecoder.Source = ImageDecoder.createSource(
                 resources, R.drawable.win
@@ -219,7 +308,13 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
             val drawableRes : Drawable = ImageDecoder.decodeDrawable(sourceRes)
             image.setImageDrawable(drawableRes)
             (drawableRes as? AnimatedImageDrawable)?.start()
-            shake(1500, 50)
+            if (vibOn == true) {
+                shake(1500, 50)
+            }
+            var credits  = readFromFile("creditos.txt").toInt()
+            credits += betV * 2
+            writeToFile("creditos.txt", credits.toString())
+            cPlace.setText(readFromFile("creditos.txt"))
         } else {
                 if (str == "verde" && betGreen == true){
                     val sourceRes :ImageDecoder.Source = ImageDecoder.createSource(
@@ -228,7 +323,13 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
                     val drawableRes : Drawable = ImageDecoder.decodeDrawable(sourceRes)
                     image.setImageDrawable(drawableRes)
                     (drawableRes as? AnimatedImageDrawable)?.start()
-                    shake(3000, 200)
+                    if (vibOn == true) {
+                        shake(3000, 200)
+                    }
+                    var credits  = readFromFile("creditos.txt").toInt()
+                    credits += betV * 5
+                    writeToFile("creditos.txt", credits.toString())
+                    cPlace.setText(readFromFile("creditos.txt"))
                 } else {
                         val sourceRes :ImageDecoder.Source = ImageDecoder.createSource(
                             resources, R.drawable.lose
@@ -269,14 +370,25 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
         if ((sides > 15 || sides < -15 || upDown > 15 || upDown < -15) && System.currentTimeMillis() - lastSensorTrigger > 1000) {
             lastSensorTrigger = System.currentTimeMillis()
 
-            if (!betBlack && !betRed && !betGreen) {
-                Toast.makeText(this, "Please make a bet!", Toast.LENGTH_SHORT).show()
-            } else {
-                val randNum = Random.nextInt(10) + 1
-                spinRoulette(randNum)
-                checkWin(checkColor(randNum))
+            val bet = betValue.text.toString().toInt()
+             var credits  = readFromFile("creditos.txt").toInt()
 
-            }
+                if (!betBlack && !betRed && !betGreen) {
+                    Toast.makeText(this, "Please make a bet!", Toast.LENGTH_SHORT).show()
+                } else {
+                    if (bet <= credits) {
+                        credits -= bet
+                        writeToFile("creditos.txt", credits.toString())
+                        cPlace.setText(readFromFile("creditos.txt"))
+                        val randNum = Random.nextInt(10) + 1
+                        spinRoulette(randNum)
+                        checkWin(checkColor(randNum), bet)
+                    } else {
+                        Toast.makeText(this, "Não tens Creditos Suficientes", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+
 
         }
     }
@@ -289,6 +401,16 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
     override fun onDestroy() {
         super.onDestroy()
         sensorManager.unregisterListener(this)
+
+        val username = readFromFile("user.txt")
+        val creditStr  = readFromFile("creditos.txt").toInt()
+        updateUserCredits(username, creditStr){ sucesso ->
+            if (sucesso) {
+                Toast.makeText(this, "Créditos atualizados!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Erro ao atualizar créditos", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun shake(millis: Long, intensity: Int) {
@@ -297,39 +419,90 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
             vibrator?.vibrate(VibrationEffect.createOneShot(millis, intensity))
         }
     }
+
+    private fun showInstructionsDialog() {
+        val builder = AlertDialog.Builder(this)
+
+        builder.setTitle("Como Jogar!")
+            .setMessage("Como Jogar! \n\n" +
+                    "1. Escolha quanto quer apostar.\n" +
+                    "2. Faça uma aposta selecionando uma das três cores (preto, vermelho, verde).\n" +
+                    "3. Agite o telemóvel.\n" +
+                    "4. Veja o resultado!!\n\n" +
+                    "NÃO SE ESQUEÇA DE TERMINAR SESSÃO PARA GUARDAR OS SEUS CRÉDITOS!\n " +
+                    "Caso contrário o seus créditos não serão atualizados para a próxma vez que jogar\n\n" +
+                    "Pode desativar a vibração e o acelerómetro nas definições")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+        builder.create().show()
+
+    }
+
+    fun readFromFile(fileName: String): String {
+        return try {
+            val fileInputStream = openFileInput(fileName)
+            val inputStreamReader = InputStreamReader(fileInputStream)
+            val bufferedReader = BufferedReader(inputStreamReader)
+
+            val stringBuilder: StringBuilder = StringBuilder()
+            bufferedReader.useLines { lines ->
+                lines.forEach { stringBuilder.append(it).append("\n") }
+            }
+
+            stringBuilder.toString().trim()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            ""
+        }
+    }
+
+    private fun writeToFile(fileName: String, dataToSave: String) {
+        try {
+            val fileOutputStream : FileOutputStream
+            try {
+                fileOutputStream = openFileOutput(fileName, MODE_PRIVATE)
+                fileOutputStream.write(dataToSave.toByteArray())
+                fileOutputStream.close()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun updateUserCredits(username: String, novosCreditos: Int, onResult: (Boolean) -> Unit) {
+
+        val rep = Repository()
+
+        rep.getUsers { users ->
+            val user = users?.find { it.username == username }
+
+            if (user != null && user.id != null) {
+                val userAtualizado = user.copy(creditos = novosCreditos)
+
+                rep.updateUser(user.id, userAtualizado) { updatedUser ->
+                    if (updatedUser != null) {
+                        Log.d("Update", "Créditos atualizados para $novosCreditos")
+                        onResult(true)
+                    } else {
+                        Log.e("Update", "Erro ao atualizar créditos")
+                        onResult(false)
+                    }
+                }
+            } else {
+                Log.e("Update", "Usuário não encontrado")
+                onResult(false)
+            }
+        }
+    }
+
+
 }
 
 
 
 
-
-
-
-
-
-//dentro do onCreate
-/*// Sensor setup
-        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        if (accelerometer == null) {
-            resultText.text = "No accelerometer available on this device."
-        } else {
-            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
-        }*/
-////////////////////////////////////////////////
-/*override fun onSensorChanged(event: SensorEvent?) {
-        if (event == null) return
-
-        val x = event.values[0]
-        val y = event.values[1]
-        val z = event.values[2]
-        val gForce = Math.sqrt((x * x + y * y + z * z).toDouble()).toFloat()
-        val currentTime = System.currentTimeMillis()
-
-        if (gForce > shakeThreshold && currentTime - lastShakeTime > 500) {
-            lastShakeTime = currentTime
-            spinRoulette()
-        }
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}*/

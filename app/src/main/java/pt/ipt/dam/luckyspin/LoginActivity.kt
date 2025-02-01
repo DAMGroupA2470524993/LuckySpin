@@ -3,11 +3,21 @@ package pt.ipt.dam.luckyspin
 import android.content.Intent
 import android.os.Bundle
 import android.util.Base64
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import pt.ipt.dam.luckyspin.data.Api
+import pt.ipt.dam.luckyspin.data.ApiSheety
+import pt.ipt.dam.luckyspin.data.Repository
+import pt.ipt.dam.luckyspin.fragmentos.tituloApp
+import pt.ipt.dam.luckyspin.fragmentos.tituloAppWelcome
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
 import pt.ipt.dam.luckyspin.data.Repository
 import pt.ipt.dam.luckyspin.fragmentos.tituloApp
 import pt.ipt.dam.luckyspin.fragmentos.tituloAppWelcome
@@ -17,6 +27,8 @@ import java.security.MessageDigest
 class LoginActivity : AppCompatActivity() {
 
     lateinit var f1: tituloApp
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,12 +79,12 @@ class LoginActivity : AppCompatActivity() {
 
         }
         signUpTextView.setOnClickListener {
-            // Navigate to RegisterActivity
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
     }
+
     private fun hashPass(input: String, algorithm: String = "SHA-256"): String {
         val bytes = MessageDigest.getInstance(algorithm).digest(input.toByteArray())
         return Base64.encodeToString(bytes, Base64.NO_WRAP)
