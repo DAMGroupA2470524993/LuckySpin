@@ -18,9 +18,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
-import pt.ipt.dam.luckyspin.data.Repository
-import pt.ipt.dam.luckyspin.fragmentos.tituloApp
-import pt.ipt.dam.luckyspin.fragmentos.tituloAppWelcome
 import java.io.FileOutputStream
 import java.security.MessageDigest
 
