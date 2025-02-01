@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 interface ApiSheety {
 
     data class UserResponse(
-        val user : List<User>
+        val users : List<User>
     )
 
     data class UserRequest(

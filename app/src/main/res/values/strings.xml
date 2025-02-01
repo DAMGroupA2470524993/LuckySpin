@@ -1,4 +1,6 @@
 <resources>
+
+    <string name="app_name">LuckySpin</string>
     <string name="appName">LuckySpin</string>
     <string name="appTitle">LuckySpin</string>
     <string name="loginWelcome">Bem vindo de volta.</string>
@@ -25,4 +27,18 @@
     <string name="spin">SPIN</string>
     <string name="betValueDefault">100</string>
     <string name="sensor_on">Sensor On</string>
+    <string name="settings">Settings</string>
+    <string name="vibrar_ativo">Vibrar Ativo</string>
+    <string name="como_jogar">Como jogar!</string>
+    <string name="username">Username</string>
+    <string name="creditos">Creditos</string>
+    <string name="email">Email</string>
+    <string name="alterar_dados">Alterar Dados</string>
+    <string name="escreva_a_sua_palavra_passe">Palavra-Passe</string>
+    <string name="terminar_sess_o">Terminar Sessão</string>
+    <string name="eliminar_conta">Eliminar Conta</string>
+    <string name="palavra_npasse">Confirme \nAlterações</string>
+    <string name="nova_npalavra_npasse">Nova \nPalavra-\nPasse</string>
+    <string name="nova_palavra_passe">Nova Palavra-Passe</string>
+
 </resources>

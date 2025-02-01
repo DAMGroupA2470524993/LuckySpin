@@ -70,7 +70,8 @@
         android:layout_below="@id/emailInput"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:hint="Username"
+        android:hint="@string/username"
+        android:maxLines="1"
         android:padding="10dp" />
 
     <!-- Create Password Text -->

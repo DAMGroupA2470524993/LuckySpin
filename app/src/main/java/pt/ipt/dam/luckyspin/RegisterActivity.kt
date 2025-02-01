@@ -1,7 +1,6 @@
 package pt.ipt.dam.luckyspin
 
 import android.annotation.SuppressLint
-import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Base64
@@ -9,8 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import pt.ipt.dam.luckyspin.data.Api
-import pt.ipt.dam.luckyspin.data.ApiSheety
+
 import pt.ipt.dam.luckyspin.data.Repository
 import pt.ipt.dam.luckyspin.data.User
 import pt.ipt.dam.luckyspin.fragmentos.tituloApp
@@ -54,6 +52,7 @@ class RegisterActivity : AppCompatActivity() {
             rep.createUser(User(email = email, username = username, hashPass = passhash, creditos = 500)) { user ->
                 if (user != null) {
                     Toast.makeText(this, "Registro bem-sucedido!", Toast.LENGTH_SHORT).show()
+
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -64,7 +63,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    fun hashPass(input: String, algorithm: String = "SHA-256"): String {
+    private fun hashPass(input: String, algorithm: String = "SHA-256"): String {
         val bytes = MessageDigest.getInstance(algorithm).digest(input.toByteArray())
         return Base64.encodeToString(bytes, Base64.NO_WRAP)
     }

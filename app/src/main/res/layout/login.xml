@@ -78,24 +78,14 @@
         android:inputType="textPassword"
         />
 
-    <!-- Forgot Password Text -->
-    <TextView
-        android:id="@+id/forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/passwordInput"
-        android:layout_alignStart="@id/passwordInput"
-        android:layout_marginTop="10dp"
-        android:text="@string/loginForgotPassword"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+
 
     <!-- Login Button -->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="260sp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/forgotPassword"
+        android:layout_below="@id/passwordInput"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp"
         android:text="@string/btnLogin" />

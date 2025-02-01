@@ -14,16 +14,114 @@
     <View
         android:layout_width="match_parent"
         android:layout_below="@id/fragmentAppTitle"
-        android:paddingTop="30sp"
-        android:layout_height="11sp"
+        android:paddingTop="30dp"
+        android:layout_height="11dp"
         android:background="@android:color/darker_gray"/>
 
-    <!-- Roulette Wheel -->
+    <ImageButton
+        android:id="@+id/profilePicture"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/img_arrendondada"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/usernamePlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/profilePicture"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:hint="@string/username"
+        android:textColorHint="@android:color/white"
+        />
+
+
+    <TextView
+        android:id="@+id/userCredits"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/usernamePlace"
+        android:layout_toEndOf="@id/profilePicture"
+        android:hint="@string/creditos"
+        android:textColorHint="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/btHelp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@id/btDef"
+        android:background="@drawable/bt_redondo"
+        android:scaleType="centerCrop"
+        android:src="@drawable/question"
+        android:text="@string/como_jogar"
+        android:textStyle="bold"
+        app:backgroundTint="@null" />
+
+    <ImageButton
+        android:id="@+id/btDef"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/bt_redondo"
+        android:scaleType="centerCrop"
+        android:src="@drawable/settings"
+        android:text="@string/settings"
+        android:textStyle="bold"
+        app:backgroundTint="@null" />
+
+    <ImageButton
+        android:id="@+id/btAc"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/btDef"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/bt_redondo"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ac_icon"
+        android:text="@string/sensor_on"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/btVib"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/btAc"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/bt_redondo"
+        android:scaleType="centerCrop"
+        android:src="@drawable/vib_icon"
+        android:text="@string/vibrar_ativo"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/rouletteWheel"
-        android:layout_width="405sp"
-        android:layout_height="276sp"
+        android:layout_width="405dp"
+        android:layout_height="276dp"
         android:layout_centerInParent="true"
         android:background="@android:color/transparent"
         android:contentDescription="@string/roulette"
@@ -34,22 +132,50 @@
     <ImageView
         android:id="@+id/imageViewResult"
         android:layout_width="wrap_content"
-        android:layout_height="200sp"
-        android:paddingTop="100sp"
+        android:layout_height="200dp"
+        android:paddingTop="100dp"
         android:layout_centerInParent="true"
         android:layout_above="@id/rouletteWheel"
         android:contentDescription="@string/result"
         android:scaleType="fitCenter"
         />
 
+    <TextView
+        android:id="@+id/textAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rouletteWheel"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/amount"
+        android:layout_toStartOf="@id/betValue"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/betValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rouletteWheel"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="24dp"
+        android:layout_centerHorizontal="true"
+        android:inputType="number"
+        android:maxLines="1"
+        android:text="@string/betValueDefault"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/btBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rouletteWheel"
-        android:layout_alignParentStart="true"
+        android:layout_below="@id/textAmount"
         android:layout_marginStart="10dp"
         android:layout_marginTop="40sp"
+        android:layout_toStartOf="@id/btRed"
         android:background="@android:color/background_dark"
         android:text="@string/black"
         android:textColor="@android:color/white"
@@ -60,10 +186,10 @@
         android:id="@+id/btRed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="40dp"
         android:background="@android:color/holo_red_dark"
-        android:layout_below="@id/rouletteWheel"
-        android:layout_toEndOf="@id/btBlack"
+        android:layout_below="@id/textAmount"
+        android:layout_centerHorizontal="true"
         android:text="@string/red"
         android:textStyle="bold"
         android:textColor="@android:color/white"
@@ -73,72 +199,31 @@
         android:id="@+id/btGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="40dp"
         android:background="@color/verde"
-        android:layout_below="@id/rouletteWheel"
+        android:layout_below="@id/textAmount"
         android:layout_toEndOf="@id/btRed"
         android:text="@string/green"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         app:backgroundTint="@null"/>
 
-    <TextView
-        android:id="@+id/textAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rouletteWheel"
-        android:layout_marginStart="17sp"
-        android:layout_marginTop="48sp"
-        android:layout_toEndOf="@id/btGreen"
-        android:hint="@string/amount"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textAmount"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="71sp"
-        android:layout_marginTop="-38sp"
-        android:layout_marginEnd="24dp"
-        android:layout_toEndOf="@id/btGreen"
-        android:inputType="number"
-        android:maxLines="1"
-        android:text="@string/betValueDefault"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btSpin"
-        android:layout_width="265sp"
+        android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btGreen"
-        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/holo_orange_dark"
         android:text="@string/spin"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold"
-        app:backgroundTint="@null" />
+        app:backgroundTint="@null"
+        android:visibility="gone"/>
 
-    <Button
-        android:id="@+id/btAc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btGreen"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="10sp"
-        android:layout_marginTop="10sp"
-        android:layout_marginEnd="5sp"
-        android:layout_toEndOf="@+id/btSpin"
-        android:background="@android:color/holo_green_dark"
-        android:text="@string/sensor_on"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold"
-        app:backgroundTint="@null" />
+
 
 </RelativeLayout>

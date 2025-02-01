@@ -2,35 +2,80 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <!-- Optional permissions for future enhancements -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/appName"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/roleta"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/roleta"
+
         android:supportsRtl="true"
-        android:theme="@style/Base.Tema.RodaSortuda"
+        android:theme="@style/Tema.RodaSortuda"
         tools:targetApi="31">
 
-        <!-- Main activity declaration -->
+
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            tools:ignore="ExtraText">
+            android:screenOrientation="portrait"
             <intent-filter>
-                <!-- Launcher activity -->
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RoletaActivity" android:exported="true" />
-        <activity android:name=".LoginActivity" android:exported="true" />
-        <activity android:name=".RegisterActivity" android:exported="true" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            tools:ignore="ExtraText">
+            android:screenOrientation="portrait"
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true"
+            tools:ignore="ExtraText">
+            android:screenOrientation="portrait"
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".RoletaActivity"
+            android:exported="true"
+            tools:ignore="ExtraText">
+            android:screenOrientation="portrait"
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".fragmentos.ProfileActivity"
+            android:exported="true"
+            tools:ignore="ExtraText">
+            android:screenOrientation="portrait"
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
     </application>

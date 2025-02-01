@@ -1,5 +1,6 @@
 package pt.ipt.dam.luckyspin.data
 
+import android.util.Log
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -8,7 +9,6 @@ class Repository() {
 
     private val api = Api.instance
 
-
     fun getUsers(onResult: (List<User>?) -> Unit) {
         api.getUsers().enqueue(object : Callback<ApiSheety.UserResponse> {
             override fun onResponse(
@@ -16,12 +16,12 @@ class Repository() {
                 response: Response<ApiSheety.UserResponse>
             ) {
                 if (response.isSuccessful) {
-                    onResult(response.body()?.user)
+                    val users = response.body()?.users ?: emptyList()
+                    onResult(users)
                 } else {
                     onResult(null)
                 }
             }
-
             override fun onFailure(call: Call<ApiSheety.UserResponse>, t: Throwable) {
                 onResult(null)
             }
@@ -44,6 +44,7 @@ class Repository() {
                     response: Response<ApiSheety.UserRequest>
                 ) {
                     if (response.isSuccessful) {
+                        Log.d("teste_response", response.body().toString())
                         val createdUser = response.body()?.user
                         onResult(createdUser)
                     } else {

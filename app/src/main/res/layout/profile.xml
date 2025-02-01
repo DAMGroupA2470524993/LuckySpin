@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragmentAppTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_below="@id/fragmentAppTitle"
+        android:paddingTop="30dp"
+        android:layout_height="11dp"
+        android:background="@android:color/darker_gray"/>
+
+    <ImageButton
+        android:id="@+id/profilePicture"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/img_arrendondada"
+        android:scaleType="centerCrop"
+        android:src="@drawable/profile"
+        />
+
+    <TextView
+        android:id="@+id/usernameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/profilePicture"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:hint="@string/username"
+        android:textColorHint="@android:color/white"
+        />
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilePicture"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="45dp"
+        android:layout_toEndOf="@id/usernameTextView"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/usernameTextView"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:hint="@string/email"
+        android:textColorHint="@android:color/white"
+        />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/usernameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="35dp"
+        android:layout_toEndOf="@id/usernameTextView"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/passwordNewTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/emailTextView"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:hint="@string/nova_npalavra_npasse"
+        android:textColorHint="@android:color/white"
+        android:textAlignment="center"
+        />
+
+    <EditText
+        android:id="@+id/passwordNewEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/usernameTextView"
+        android:inputType="textPassword"
+        android:hint="@string/nova_palavra_passe"
+        android:maxLines="1"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/passwordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/passwordNewEditText"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:hint="@string/palavra_npasse"
+        android:textColorHint="@android:color/white"
+        android:textAlignment="center"
+        />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordNewEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/usernameTextView"
+        android:inputType="textPassword"
+        android:hint="@string/escreva_a_sua_palavra_passe"
+        android:maxLines="1"
+        android:textSize="20sp"
+        />
+
+    <Button
+        android:id="@+id/alterarDadosButton"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="-75dp"
+        android:layout_above="@id/btLogout"
+        android:layout_marginStart="30dp"
+        android:layout_alignParentStart="true"
+        android:text="@string/alterar_dados"
+        app:backgroundTint="@null"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/eliminarUser"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_above="@id/btLogout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="-75dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="@string/eliminar_conta"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null" />
+
+    <Button
+        android:id="@+id/btLogout"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/terminar_sess_o"
+        app:backgroundTint="@null"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+
+</RelativeLayout>
