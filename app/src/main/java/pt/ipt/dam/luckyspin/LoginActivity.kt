@@ -23,18 +23,10 @@ import java.security.MessageDigest
 
 class LoginActivity : AppCompatActivity() {
 
-    lateinit var f1: tituloApp
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
-        f1 = tituloApp.newInstance("", "");
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentAppTitle, f1)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+
 
         val usernameInput : EditText = findViewById(R.id.usernameInput)
         val passwordInput: EditText = findViewById(R.id.passwordInput)

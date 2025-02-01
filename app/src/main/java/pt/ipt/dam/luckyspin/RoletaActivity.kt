@@ -36,7 +36,6 @@ import java.io.FileOutputStream
 import java.io.InputStreamReader
 
 class RoletaActivity : AppCompatActivity(), SensorEventListener  {
-    private lateinit var f1: tituloApp
 
     private lateinit var image: ImageView
     private lateinit var roulette: ImageView
@@ -73,12 +72,7 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.roleta)
-        
-        this.f1 = tituloApp.newInstance("", "");
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentAppTitle, f1)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+
 
         /*                 SENSOR ACELERÓMETRO ERRO!!!!*/
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) // garante que não está no dark mode
