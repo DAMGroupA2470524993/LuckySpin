@@ -12,8 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import pt.ipt.dam.luckyspin.data.Api
 import pt.ipt.dam.luckyspin.data.ApiSheety
 import pt.ipt.dam.luckyspin.data.Repository
-import pt.ipt.dam.luckyspin.fragmentos.tituloApp
-import pt.ipt.dam.luckyspin.fragmentos.tituloAppWelcome
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
