@@ -1,26 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme for Material Components -->
     <style name="Base.Tema.RodaSortuda" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Cor de fundo principal -->
-        <item name="android:colorBackground">@color/cor_fundo_primario</item> <!-- Android framework background -->
-
-        <!-- Cores do texto -->
-        <item name="android:textColor">@color/cor_texto_claro</item> <!-- Text color for content -->
-        <item name="android:textColorPrimary">@color/cor_texto_principal</item> <!-- Primary text color -->
-        <item name="android:textColorSecondary">@color/cor_texto_secundario</item> <!-- Secondary text color -->
-
-        <!-- Cor do botão -->
-        <item name="colorPrimary">@color/cor_amarelo_vibrante</item> <!-- Primary UI color -->
-        <item name="colorSecondary">@color/cor_realce_azul</item> <!-- Secondary UI color -->
-
-        <!-- Sombreamento -->
-        <item name="android:shadowColor">@color/cor_sombra</item> <!-- Shadow color -->
+        <item name="android:colorBackground">@color/cor_fundo_primario</item>
+        <item name="android:textColor">@color/cor_texto_claro</item>
+        <item name="android:textColorPrimary">@color/cor_texto_principal</item>
+        <item name="android:textColorSecondary">@color/cor_texto_secundario</item>
+        <item name="colorPrimary">@color/cor_amarelo_vibrante</item>
+        <item name="colorSecondary">@color/cor_realce_azul</item>
+        <item name="android:shadowColor">@color/cor_sombra</item>
     </style>
-
     <style name="Tema.RodaSortuda" parent="Base.Tema.RodaSortuda" />
-
-    <!-- Light Theme Overrides for Material Components -->
-    <style name="Tema.RodaSortuda.Claro" parent="Base.Tema.RodaSortuda">
-        <item name="android:colorBackground">@color/cor_clara</item> <!-- Background color for surfaces -->
-    </style>
 </resources>

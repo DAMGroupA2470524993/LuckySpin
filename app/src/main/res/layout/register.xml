@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- TextView do título-->
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
@@ -15,7 +16,7 @@
         android:textStyle="bold"
         />
 
-    <!-- Welcome Encouragemenet Text-->
+    <!-- TextView que identifica a página de registo-->
     <TextView
         android:id="@+id/signupTitle"
         android:layout_width="wrap_content"
@@ -28,7 +29,7 @@
         android:textSize="26sp"
         android:textStyle="bold" />
 
-    <!-- Email Input Text -->
+    <!-- TextView que indica ao Utilizador para introduzir o seu email -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +38,7 @@
         android:text="@string/introduza_o_seu_email"
         android:textSize="16sp" />
 
-    <!-- Email Input Field -->
+    <!-- EditText onde o utilziador coloca o seu email -->
     <EditText
         android:id="@+id/emailInput"
         android:layout_width="350dp"
@@ -48,7 +49,7 @@
         android:hint="@string/email"
         android:padding="10dp" />
 
-    <!-- Username Input Text -->
+    <!-- TextView que indica ao Utilizador para introduzir o seu nome de utilziador -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +58,7 @@
         android:text="@string/textTitleInputUsername"
         android:textSize="16sp" />
 
-    <!-- Username Input Field -->
+    <!-- EditText onde o utilziador coloca o seu nome de utilizador -->
     <EditText
         android:id="@+id/usernameInput"
         android:layout_width="350dp"
@@ -69,7 +70,7 @@
         android:maxLines="1"
         android:padding="10dp" />
 
-    <!-- Create Password Text -->
+    <!-- TextView que indica ao Utilizador para introduzir a sua palavra-passe -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,7 +80,7 @@
         android:text="@string/textTitleInputPassword"
         android:textSize="16sp" />
 
-    <!-- Password Input Field -->
+    <!-- EditText onde o utilziador coloca a sua palavra-passe -->
     <EditText
         android:id="@+id/passwordInput"
         android:layout_width="350dp"
@@ -91,7 +92,7 @@
         android:padding="10dp"
         android:inputType="textPassword" />
 
-    <!-- Sign Up Button -->
+    <!-- Botão que permite registar na app -->
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="260sp"

@@ -5,34 +5,64 @@ import retrofit2.http.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+* Interface que permite a interação com a API
+*/
 interface ApiSheety {
 
+    /**
+    *Classes de resposta que retorna uma lista de utilizadores
+     * @param users lista de utilizadores
+    */
     data class UserResponse(
         val users : List<User>
     )
 
+    /**
+    *Classe de resposta que retorna um utilizador
+     * @param user utilizador
+    */
     data class UserRequest(
         val user : User
     )
 
-
+    /**
+    *Função que permite a obtenção de todos os utilizadores
+    */
     @GET("users/")
     fun getUsers(): Call<UserResponse>
 
+    /**
+     *Função que permite a criação de um utilizador
+     * @param userReq user a criar
+     */
     @POST("users/")
      fun createUser(@Body userReq: UserRequest): Call<UserRequest>
 
+    /**
+     * Função que permite a atualização de um utilizador
+     * @param id id do utilizador a atualizar
+     * @param userReq user com os dados a atualizar
+     */
     @PUT("users/{id}")
-     fun updateUser(@Path("id") id: Int, @Body userReq: UserRequest): Call<UserRequest>
+    fun updateUser(@Path("id") id: Int, @Body userReq: UserRequest): Call<UserRequest>
 
+     /**
+      *Função que permite a eliminação de um utilizador
+      * @param id id do utilizador a eliminar
+      */
     @DELETE("users/{id}")
      fun deleteUser(@Path("id") id: Int): Call<Void>
 
 }
 
+/**
+* Objeto que permite a instância da API
+*/
 object Api {
+    // URL base da API
     private const val BASE_URL = "https://api.sheety.co/5d12346ba9702c09e1066fa91a3414fb/luckySpin/"
-
+    // Instância da API
     val instance: ApiSheety by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
