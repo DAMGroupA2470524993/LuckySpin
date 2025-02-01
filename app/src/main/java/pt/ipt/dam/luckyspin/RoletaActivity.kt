@@ -30,7 +30,6 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
 import pt.ipt.dam.luckyspin.data.Repository
-import pt.ipt.dam.luckyspin.fragmentos.ProfileActivity
 import java.io.BufferedReader
 import java.io.FileOutputStream
 import java.io.InputStreamReader

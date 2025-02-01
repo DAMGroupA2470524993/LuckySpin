@@ -67,7 +67,7 @@
         </activity>
 
         <activity
-            android:name=".fragmentos.ProfileActivity"
+            android:name=".ProfileActivity"
             android:exported="true"
             tools:ignore="ExtraText">
             android:screenOrientation="portrait"
