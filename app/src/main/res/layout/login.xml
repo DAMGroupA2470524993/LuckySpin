@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- TextView do título-->
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
@@ -17,6 +18,7 @@
         android:textStyle="bold"
         />
 
+    <!-- TextView mensagem de boas-vindas ao Utilizador-->
     <TextView
         android:id="@+id/welcomeBackTitle"
         android:layout_width="wrap_content"
@@ -30,7 +32,7 @@
         android:textStyle="bold"
         tools:ignore="NotSibling" />
 
-    <!-- Email Input Text -->
+    <!-- TextView que indica ao Utilizador para introduzir o seu nome de utilziador -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,7 +42,7 @@
         android:text="@string/textTitleInputUsername"
         android:textSize="16sp" />
 
-    <!-- Username Input -->
+    <!-- EditText onde o utilziador coloca o seu nome de utilizador -->
     <EditText
         android:id="@+id/usernameInput"
         android:layout_width="350dp"
@@ -53,6 +55,7 @@
         android:inputType="text"
         android:maxLines="1"/>
 
+    <!-- TextView que indica ao Utilizador para introduzir a sua palavra-passe -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,7 +65,7 @@
         android:text="@string/textTitleInputPassword"
         android:textSize="16sp" />
 
-    <!-- Password Input -->
+    <!-- EditText onde o utilziador coloca a sua palavra-passe -->
     <EditText
         android:id="@+id/passwordInput"
         android:layout_width="350dp"
@@ -74,7 +77,7 @@
         android:inputType="textPassword"
         />
 
-
+    <!-- Botão para iniciar sessão -->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="260sp"
@@ -89,6 +92,7 @@
         android:textSize="20sp"
         android:text="@string/btnLogin" />
 
+    <!-- TextView que indica ao utilizador onde se pode registar na app -->
     <TextView
         android:id="@+id/newUserSignUp"
         android:layout_width="wrap_content"

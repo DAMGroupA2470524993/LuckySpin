@@ -1,5 +1,4 @@
 <resources>
-
     <string name="app_name">LuckySpin</string>
     <string name="appName">LuckySpin</string>
     <string name="appTitle">LuckySpin</string>
@@ -38,5 +37,5 @@
     <string name="introduza_o_seu_email">Introduza o seu Email</string>
     <string name="criar_conta">Criar Conta</string>
     <string name="sobre_nos">Sobre Nós</string>
-
+    <string name="nome_nutilizador">Nome \nUtilizador</string>
 </resources>

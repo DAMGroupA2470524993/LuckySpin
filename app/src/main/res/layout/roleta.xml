@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <!-- TextView do título-->
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
@@ -17,6 +17,7 @@
         android:textStyle="bold"
         />
 
+    <!-- View que serve de separador-->
     <View
         android:layout_width="match_parent"
         android:layout_below="@id/titulo"
@@ -24,6 +25,7 @@
         android:layout_height="11dp"
         android:background="@android:color/darker_gray"/>
 
+    <!-- ImageButton que representa o perfil do utilizador autenticado-->
     <ImageButton
         android:id="@+id/profilePicture"
         android:layout_width="90dp"
@@ -34,6 +36,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/profile" />
 
+    <!-- TextView onde aparecerá o nome do utilizador autenticado-->
     <TextView
         android:id="@+id/usernamePlace"
         android:layout_width="wrap_content"
@@ -48,7 +51,7 @@
         android:textColorHint="@android:color/white"
         />
 
-
+    <!-- TextView onde aparecerá os créditos do utilizador autenticado-->
     <TextView
         android:id="@+id/userCredits"
         android:layout_width="150dp"
@@ -62,6 +65,7 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <!-- ImageButton que permite aceder à página de ajuda e explicação do funcionamento-->
     <ImageButton
         android:id="@+id/btHelp"
         android:layout_width="55dp"
@@ -76,6 +80,7 @@
         android:textStyle="bold"
         app:backgroundTint="@null" />
 
+    <!-- ImageButton das definições, coloca dois botões visiveis dos sensores-->
     <ImageButton
         android:id="@+id/btDef"
         android:layout_width="55dp"
@@ -90,6 +95,7 @@
         android:textStyle="bold"
         app:backgroundTint="@null" />
 
+    <!-- ImageButton que permite desligar e ligar o acelerómetro-->
     <ImageButton
         android:id="@+id/btAc"
         android:layout_width="55dp"
@@ -107,6 +113,7 @@
         app:backgroundTint="@null"
         android:visibility="gone"/>
 
+    <!-- ImageButton que permite desligar e ligar a vibração-->
     <ImageButton
         android:id="@+id/btVib"
         android:layout_width="55dp"
@@ -124,6 +131,7 @@
         app:backgroundTint="@null"
         android:visibility="gone"/>
 
+    <!-- ImageView da roleta-->
     <ImageView
         android:id="@+id/rouletteWheel"
         android:layout_width="405dp"
@@ -135,7 +143,7 @@
         android:scaleType="fitCenter"
         />
 
-    <!-- Roulette Result -->
+    <!-- ImageView onde aparece um gif com o resultado da aposta -->
     <ImageView
         android:id="@+id/imageViewResult"
         android:layout_width="wrap_content"
@@ -147,6 +155,7 @@
         android:scaleType="fitCenter"
         />
 
+    <!-- TextView onde identifica a aposta -->
     <TextView
         android:id="@+id/textAmount"
         android:layout_width="wrap_content"
@@ -160,6 +169,7 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <!-- EditText onde o utilizador escolhe quanto quer apostar-->
     <EditText
         android:id="@+id/betValue"
         android:layout_width="wrap_content"
@@ -175,6 +185,7 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <!-- Botão para apostar na cor preta -->
     <Button
         android:id="@+id/btBlack"
         android:layout_width="wrap_content"
@@ -189,6 +200,7 @@
         android:textStyle="bold"
         app:backgroundTint="@null" />
 
+    <!-- Botão para apostar na cor vermelha -->
     <Button
         android:id="@+id/btRed"
         android:layout_width="wrap_content"
@@ -202,6 +214,7 @@
         android:textColor="@android:color/white"
         app:backgroundTint="@null"/>
 
+    <!-- Botão para apostar na cor verde -->
     <Button
         android:id="@+id/btGreen"
         android:layout_width="wrap_content"
@@ -215,7 +228,7 @@
         android:textColor="@android:color/white"
         app:backgroundTint="@null"/>
 
-
+    <!-- Botão para girar a roleta caso o acelerómetro esteja desligado -->
     <Button
         android:id="@+id/btSpin"
         android:layout_width="265dp"

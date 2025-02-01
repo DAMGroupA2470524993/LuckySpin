@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- TextView do título-->
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
@@ -17,6 +18,7 @@
         android:textStyle="bold"
         />
 
+    <!-- View que serve de separador-->
     <View
         android:layout_width="match_parent"
         android:layout_below="@id/titulo"
@@ -24,6 +26,7 @@
         android:layout_height="11dp"
         android:background="@android:color/darker_gray"/>
 
+    <!-- ImageButton que aparece a imagem de perfil(default) do utilizador-->
     <ImageButton
         android:id="@+id/profilePicture"
         android:layout_width="200dp"
@@ -35,6 +38,7 @@
         android:src="@drawable/profile"
         />
 
+    <!-- TextView que identifica o nome de utilizador-->
     <TextView
         android:id="@+id/usernameTextView"
         android:layout_width="wrap_content"
@@ -45,10 +49,11 @@
         android:layout_below="@id/profilePicture"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:hint="Nome \nUtilizador"
+        android:hint="@string/nome_nutilizador"
         android:textColorHint="@android:color/white"
         />
 
+    <!-- EditText onde aparece o nome de utilizador do utilizador autenticado que pode ser alterado-->
     <EditText
         android:id="@+id/usernameEditText"
         android:layout_width="200dp"
@@ -63,6 +68,7 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
+    <!-- TextView que identifica o email do utilizador-->
     <TextView
         android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
@@ -77,6 +83,7 @@
         android:textColorHint="@android:color/white"
         />
 
+    <!-- EditText onde aparece o email do utilizador autenticado que pode ser alterado-->
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="200dp"
@@ -91,6 +98,7 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
+    <!-- TextView que identifica onde deve ser escrita a nova palavra-passe-->
     <TextView
         android:id="@+id/passwordNewTextView"
         android:layout_width="wrap_content"
@@ -106,6 +114,7 @@
         android:textAlignment="center"
         />
 
+    <!-- EditText para o utilizador escrever a sua nova palavra-passe-->
     <EditText
         android:id="@+id/passwordNewEditText"
         android:layout_width="200dp"
@@ -121,6 +130,7 @@
         android:textSize="20sp"
         />
 
+    <!-- TextView que identifica onde deve ser escrita a  palavra-passe-->
     <TextView
         android:id="@+id/passwordTextView"
         android:layout_width="wrap_content"
@@ -136,6 +146,7 @@
         android:textAlignment="center"
         />
 
+    <!-- EditText para o utilizador escrever a sua  palavra-passe-->
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="200dp"
@@ -151,6 +162,7 @@
         android:textSize="20sp"
         />
 
+    <!-- Botão que permite alterar os dados do utilizador-->
     <Button
         android:id="@+id/alterarDadosButton"
         android:layout_width="150dp"
@@ -168,6 +180,7 @@
         android:textStyle="bold"
         />
 
+    <!-- Botão que permite eliminar a conta do utilizador-->
     <Button
         android:id="@+id/eliminarUser"
         android:layout_width="150dp"
@@ -184,6 +197,7 @@
         android:textStyle="bold"
         app:backgroundTint="@null" />
 
+    <!-- Botão que permite terminar a sessão do utilizador-->
     <Button
         android:id="@+id/btLogout"
         android:layout_width="200dp"
