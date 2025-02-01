@@ -29,14 +29,15 @@ class Repository() {
     }
 
     fun createUser(user: User, onResult: (User?) -> Unit) {
-            val newUser = User(
-                email = user.email,
-                hashPass = user.hashPass,
-                username = user.username,
-                creditos = user.creditos
-            )
+        val newUser = User(
+            email = user.email,
+            hashPass = user.hashPass,
+            username = user.username,
+            creditos = user.creditos
+        )
 
-            val request = ApiSheety.UserRequest(newUser)
+        val request = ApiSheety.UserRequest(newUser)
+
 
             api.createUser(request).enqueue(object : Callback<ApiSheety.UserRequest> {
                 override fun onResponse(
@@ -53,10 +54,27 @@ class Repository() {
                 }
 
                 override fun onFailure(call: Call<ApiSheety.UserRequest>, t: Throwable) {
+
+        api.createUser(request).enqueue(object : Callback<ApiSheety.UserRequest> {
+            override fun onResponse(
+                call: Call<ApiSheety.UserRequest>,
+                response: Response<ApiSheety.UserRequest>
+            ) {
+                if (response.isSuccessful) {
+                    Log.d("teste_response", response.body().toString())
+                    val createdUser = response.body()?.user
+                    onResult(createdUser)
+                } else {
+
                     onResult(null)
                 }
-            })
-        }
+            }
+
+            override fun onFailure(call: Call<ApiSheety.UserRequest>, t: Throwable) {
+                onResult(null)
+            }
+        })
+    }
 
 
     fun updateUser(id: Int, user: User, onResult: (User?) -> Unit) {
