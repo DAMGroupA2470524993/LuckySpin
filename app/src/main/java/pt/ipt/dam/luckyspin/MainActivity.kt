@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import pt.ipt.dam.luckyspin.fragmentos.tituloAppWelcome
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,10 +24,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        aboutBt.setOnClickListener {
+        /*aboutBt.setOnClickListener {
             val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
-        }
+        }*/
 
     }
 }

@@ -18,7 +18,7 @@ import java.io.InputStreamReader
 import java.security.MessageDigest
 
 class ProfileActivity: AppCompatActivity() {
-    private lateinit var f1: tituloApp
+
 
     private lateinit var usrInput : EditText
     private lateinit var emailInput : EditText
@@ -34,11 +34,6 @@ class ProfileActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile)
 
-        this.f1 = tituloApp.newInstance("", "");
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentAppTitle, f1)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
 
         usrInput           = findViewById(R.id.usernameEditText)
         emailInput         = findViewById(R.id.emailEditText)
