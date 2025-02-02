@@ -47,4 +47,7 @@
     <string name="ano_letivo">2024/2025</string>
     <string name="fontes"><![CDATA[Fontes De Consulta \n\n - Leitura e Escrita em ficheiros: https://www.youtube.com/watch?v=Ir9qeQqw-48&t=602s \n\n -Sensor Acelerómetro: https://www.youtube.com/watch?v=xcsuDDQHrLo&t=371s \n\n Utilização da API sheety desenvolvida pela google. Versão grátis. 200 Request por mês]]></string>
     <string name="voltar">Voltar</string>
+    <string name="btnDeposit">Depositar</string>
+    <string name="insertDeposit">Insira valor</string>
+    <string name="txtDepositar">Depositar Créditos</string>
 </resources>
