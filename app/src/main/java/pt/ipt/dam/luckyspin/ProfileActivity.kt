@@ -154,39 +154,45 @@ class ProfileActivity: AppCompatActivity() {
         //ação do botão de eliminar a conta
         //o utilizador é redirecionado para a página de login
         btEliminar.setOnClickListener {
-            //leitura da lista de utilizadores
-            rep.getUsers { users ->
-                if (users != null) {
-                    //procura do nome de utilizador na API
-                    val user = users.find { it.username == lastUsername }
-                    if (user != null && user.id != null) {
-                        //verificação da palavra-passe
-                        if (hashPass(passInput.getText().toString()) == user.hashPass) {
-                            //eliminação do utilizador
-                            rep.deleteUser(user.id) { success ->
-                                //mensagem de sucesso ou erro
-                                if (success) {
-                                    Toast.makeText(
-                                        this,
-                                        "Utilizador eliminado com sucesso!",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    //redirecionamento para a página de login
-                                    val intent = Intent(this, LoginActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
 
-                                } else {
-                                    Toast.makeText(
-                                        this,
-                                        "Erro ao eliminar utilizador",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+            if (passInput.getText().toString().isEmpty()){
+                Toast.makeText(this, "Insira a sua Palavra-Passe para eliminar a sua conta!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else {
+                //leitura da lista de utilizadores
+                rep.getUsers { users ->
+                    if (users != null) {
+                        //procura do nome de utilizador na API
+                        val user = users.find { it.username == lastUsername }
+                        if (user != null && user.id != null) {
+                            //verificação da palavra-passe
+                            if (hashPass(passInput.getText().toString()) == user.hashPass) {
+                                //eliminação do utilizador
+                                rep.deleteUser(user.id) { success ->
+                                    //mensagem de sucesso ou erro
+                                    if (success) {
+                                        Toast.makeText(
+                                            this,
+                                            "Utilizador eliminado com sucesso!",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        //redirecionamento para a página de login
+                                        val intent = Intent(this, LoginActivity::class.java)
+                                        startActivity(intent)
+                                        finish()
+
+                                    } else {
+                                        Toast.makeText(
+                                            this,
+                                            "Erro ao eliminar utilizador",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
                                 }
                             }
+                        } else {
+                            Toast.makeText(this, "Erro na procura do utilizador", Toast.LENGTH_SHORT).show()
                         }
-                    } else {
-                        Toast.makeText(this, "Erro na procura do utilizador", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
