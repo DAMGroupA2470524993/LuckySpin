@@ -22,6 +22,9 @@ import java.io.BufferedReader
 import java.io.FileOutputStream
 import java.io.InputStreamReader
 
+/**
+ * Classe que aloja a página de créditos do utilizador
+ */
 class CreditosActivity : AppCompatActivity(){
 
     //Botão para retornar à roleta
@@ -30,9 +33,14 @@ class CreditosActivity : AppCompatActivity(){
     private lateinit var btDepositar : Button
     //Valor a depositar no mbway
     private lateinit var inputValor : EditText
+    //Nome de utilizador do utilizador
     var username: String = ""
+    //Créditos do utilizador
     var creditos: Int = 0
 
+    /**
+     * Função que cria a página de créditos
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //definição do layout da página
@@ -42,6 +50,8 @@ class CreditosActivity : AppCompatActivity(){
         btVoltar = findViewById(R.id.btVoltar)
         btDepositar = findViewById(R.id.btDepositar)
         inputValor = findViewById(R.id.inputValor)
+
+        //leitura do nome de utilizador e dos créditos do utilizador
         username = readFromFile("user.txt")
         creditos = readFromFile("creditos.txt").toInt()
 
@@ -59,17 +69,25 @@ class CreditosActivity : AppCompatActivity(){
         }
     }
 
+    /**
+     * Função que abre um pop-up para colocar o número de telemóvel
+     */
     private fun initiateTransaction() {
+        //criação do pop-up
         val inflater = LayoutInflater.from(this)
+        //definição do layout do pop-up
         val view = inflater.inflate(R.layout.mbway, null)
-        val inputPhone = view.findViewById<EditText>(R.id.inputMbwayPhone)
-
+        //campo de texto para inserir o número de telemóvel
+        val inputPhone : EditText = view.findViewById(R.id.inputMbwayPhone)
+        //definição do pop-up
         val dialog = AlertDialog.Builder(this)
             .setTitle("MB WAY Depósito")
             .setMessage("Introduza o seu número MB WAY:")
             .setView(view)
             .setPositiveButton("Confirmar") { _, _ ->
+                //leitura do número de telemóvel
                 val phoneNumber = inputPhone.text.toString()
+                //verificação do número de telemóvel
                 if (phoneNumber.isNotEmpty()) {
                     //criar transação mbway
                     createMbwayTransaction(phoneNumber, inputValor.getText().toString().toInt()*100)
@@ -83,7 +101,13 @@ class CreditosActivity : AppCompatActivity(){
         dialog.show()
     }
 
+    /**
+     * Função que permite criar uma transação mbway
+     * @param phoneNumber número de telemóvel do utilizador
+     * @param amount valor a depositar
+     */
     private fun createMbwayTransaction(phoneNumber: String, amount: Int) {
+        //criação da transação
         val request = MbwayRequest(
             payment = Payment(
                 amount = Amount(currency = "EUR", value = amount),
@@ -93,6 +117,7 @@ class CreditosActivity : AppCompatActivity(){
             )
         )
 
+        //envio da transação
         RetrofitClient.instance.createMbwayPayment(request)
             .enqueue(object : Callback<MbwayPaymentResponse> {
                 override fun onResponse(
@@ -101,6 +126,7 @@ class CreditosActivity : AppCompatActivity(){
                 ) {
                     if (response.isSuccessful) {
                         val result = response.body()
+                        //verificação do resultado da transação
                         if (result?.transactionStatus == "Success") {
                             Toast.makeText(this@CreditosActivity, "Pagamento MB WAY concluído!", Toast.LENGTH_LONG).show()
                             Log.d("teste_creditos","${creditos} antes da alteracao")

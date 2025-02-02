@@ -50,4 +50,5 @@
     <string name="btnDeposit">Depositar</string>
     <string name="insertDeposit">Insira valor</string>
     <string name="txtDepositar">Depositar Créditos</string>
+    <string name="n_telemovel">Número de telefone MB WAY</string>
 </resources>

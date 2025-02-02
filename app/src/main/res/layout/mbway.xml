@@ -4,11 +4,12 @@
     android:layout_height="wrap_content"
     android:padding="20dp">
 
+    <!-- EditText onde o utilizador coloca o seu número de telemóvel-->
     <EditText
         android:id="@+id/inputMbwayPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Número de telefone MB WAY"
+        android:hint="@string/n_telemovel"
         android:inputType="phone" />
 
 </RelativeLayout>
