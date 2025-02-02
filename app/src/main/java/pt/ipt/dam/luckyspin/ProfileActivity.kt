@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Base64
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import pt.ipt.dam.luckyspin.data.Repository
@@ -28,7 +29,7 @@ class ProfileActivity: AppCompatActivity() {
     //campo de texto para inserir a password
     private lateinit var passConfirm : EditText
     //imageVie para voltar à roleta
-    private lateinit var btVoltar : Button
+    private lateinit var btVoltar : ImageView
     //botão para alterar os dados
     private lateinit var alterarDadosButton: Button
     //botão para fazer logout

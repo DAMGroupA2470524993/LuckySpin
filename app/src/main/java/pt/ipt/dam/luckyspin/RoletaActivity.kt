@@ -422,7 +422,7 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
                     //escreve os créditos atualizados no ficheiro
                     writeToFile("creditos.txt", credits.toString())
                     //coloca os créditos atualizados no campo de texto
-                    cPlace.setText(readFromFile("creditos.txt"))
+                    cPlace.setText("$" + readFromFile("creditos.txt"))
                 } else {
                         //mostra a imagem do resultado
                         val sourceRes :ImageDecoder.Source = ImageDecoder.createSource(
