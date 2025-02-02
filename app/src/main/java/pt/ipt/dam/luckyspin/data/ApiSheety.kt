@@ -64,6 +64,7 @@ object Api {
     private const val BASE_URL = "https://api.sheety.co/f0e4e74efdf030397e3491e453ff91f5/luckySpin/"
     // Instância da API
     val instance: ApiSheety by lazy {
+        //utilização da biblioteca Retrofit 
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
