@@ -178,6 +178,13 @@ class RoletaActivity : AppCompatActivity(), SensorEventListener  {
             btGreen.setBackgroundColor(Color.GREEN)
         }
 
+        //Quando carregado, abre a página dos créditos
+        cPlace.setOnClickListener {
+            //abre a página dos créditos
+            val intent = Intent(this, CreditosActivity::class.java)
+            startActivity(intent);
+        }
+
         //Quando carregado no botão, abre a página de perfil
         profPic.setOnClickListener{
             //abre a página de perfil

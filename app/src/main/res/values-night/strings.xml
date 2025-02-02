@@ -12,4 +12,5 @@
     <string name="casinoWelcomeText">BEM VINDO</string>
     <string name="btnJoin">JUNTA-TE HOJE</string>
     <string name="txtWelcomeOferta">OFERTA SEM DEPÓSITO</string>
+    <string name="insertDeposit">Insira valor</string>
 </resources>
