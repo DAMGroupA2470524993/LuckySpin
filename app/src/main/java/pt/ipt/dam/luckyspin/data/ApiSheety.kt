@@ -61,7 +61,7 @@ interface ApiSheety {
 */
 object Api {
     // URL base da API
-    private const val BASE_URL = "https://api.sheety.co/5d12346ba9702c09e1066fa91a3414fb/luckySpin/"
+    private const val BASE_URL = "https://api.sheety.co/d66910fcece25a1e4931d8d893e4e5ac/luckyspin"
     // Instância da API
     val instance: ApiSheety by lazy {
         Retrofit.Builder()

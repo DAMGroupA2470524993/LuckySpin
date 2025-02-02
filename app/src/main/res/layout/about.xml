@@ -108,7 +108,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
-
+    <!-- TextView com as fontes de consulta do projeto -->
     <TextView
         android:id="@+id/fontes"
         android:layout_width="375dp"
@@ -122,6 +122,7 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
 
+    <!-- Botão para voltar à página inicial -->
     <Button
         android:id="@+id/btVoltar"
         android:layout_width="wrap_content"
